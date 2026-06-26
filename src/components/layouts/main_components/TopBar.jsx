@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+
 const Logo = "https://raw.githubusercontent.com/scholarnet-learn/Pictures/main/main-logo.webp";
 import "./../../../css/TopBar.css";
 
@@ -11,11 +12,23 @@ const navLinks = [
 
 export default function TopBar() {
     const [menuOpen, setMenuOpen] = useState(false);
-    const currentPath = window.location.pathname;
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+        };
+
+        handleScroll();
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <header className={`topbar ${menuOpen ? "menu-open" : ""}`}>
-
+        <header
+            className={`topbar ${menuOpen ? "menu-open" : ""} ${scrolled ? "scrolled" : ""}`}
+        >
             <div className="topbar-logo">
                 <img src={Logo} alt="Logo" />
                 <span>Legend Games</span>
@@ -43,9 +56,6 @@ export default function TopBar() {
                     </NavLink>
                 ))}
             </nav>
-
-
-
         </header>
     );
 }

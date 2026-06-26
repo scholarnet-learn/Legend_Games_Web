@@ -14,6 +14,7 @@ export default function ProdPage() {
     const { productId } = useParams();
     const navigate = useNavigate();
 
+    const [expanded, setExpanded] = useState(false);
     const [checkoutOpen, setCheckoutOpen] = useState(false);
     const [successPopup, setSuccessPopup] = useState(false);
     const [errorPopup, setErrorPopup] = useState(false);
@@ -92,6 +93,9 @@ export default function ProdPage() {
         }),
     };
 
+    console.log(product.longDescription);
+    console.log(product.longDescription?.length);
+
     return (
         <>
             <section className="home-page">
@@ -103,51 +107,78 @@ export default function ProdPage() {
                     </div>
                 </div>
 
+                <div className="product-detail-image">
+                    <img
+                        src={product.image}
+                        alt={product.name}
+                    />
+                </div>
+
                 <div className="product-detail-card">
-                    <div className="product-detail-image">
-                        <img src={product.image} alt={product.name} />
 
-                        <div className="product-detail-overlay">
-                            <div className="product-detail-overlay-copy">
-                                <span className="home-eyebrow">
-                                    Product Preview
-                                </span>
+                    <div className="product-detail-content">
 
-                                <h2>{product.name}</h2>
+                        <h2>{product.name}</h2>
 
-                                <p>{product.description}</p>
-                            </div>
+                        <span className="game-price">
+                            {product.price.toFixed(2)} $
+                        </span>
 
-                            <div className="product-detail-overlay-bottom">
-                                <div className="product-detail-meta">
-                                    <span className="game-price">
-                                        {product.price.toFixed(2)} $
-                                    </span>
-                                </div>
+                        <div className="product-description">
 
-                                <div className="product-detail-actions">
-                                    <button
-                                        type="button"
-                                        className="view-all-btn secondary"
-                                        onClick={() => navigate(-1)}
+                            <h3>Description</h3>
+
+                            <p>{product.description}</p>
+
+                            {product.longDescription && (
+                                <>
+                                    <div
+                                        className={`description-wrapper ${expanded ? "expanded" : ""
+                                            }`}
                                     >
-                                        Back
-                                    </button>
+                                        <p className="description">
+                                            {product.longDescription}
+                                        </p>
+                                    </div>
 
                                     <button
-                                        type="button"
-                                        className="view-all-btn"
-                                        onClick={() => setCheckoutOpen(true)} onClick={() => {
-                                            setCheckoutOpen(true);
-                                            setCheckoutStep(1);
-                                        }}
+                                        className="more-btn"
+                                        onClick={() => setExpanded(!expanded)}
                                     >
-                                        Buy now
+                                        {expanded ? "Show Less" : "More..."}
                                     </button>
-                                </div>
-                            </div>
+                                </>
+                            )}
                         </div>
+
+                        <div className="product-detail-actions">
+
+                            <button
+                                className="view-all-btn secondary"
+                                onClick={() => navigate(-1)}
+                            >
+                                Back
+                            </button>
+
+                            <button
+                                className="view-all-btn"
+                                onClick={() => {
+                                    if (product.paymentLink) {
+                                        window.open(product.paymentLink, "_blank");
+                                        return;
+                                    }
+
+                                    setCheckoutOpen(true);
+                                    setCheckoutStep(1);
+                                }}
+                            >
+                                Buy Now
+                            </button>
+
+                        </div>
+
                     </div>
+
                 </div>
             </section>
 

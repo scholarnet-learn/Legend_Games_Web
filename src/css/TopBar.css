@@ -15,14 +15,27 @@
 
     z-index: 9999;
 
-    background: var(--color-surface-glass);
+    background: transparent;
+    backdrop-filter: blur(0);
 
-    backdrop-filter: blur(20px);
-
-    border: none;
     border-radius: 999px;
 
-    transition: all .3s ease;
+    transition:
+        background .35s ease,
+        backdrop-filter .35s ease,
+        box-shadow .35s ease,
+        border .35s ease;
+}
+
+.topbar.scrolled {
+    background: rgba(18, 22, 33, 0.65);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.25);
 }
 
 
@@ -41,7 +54,7 @@
         drop-shadow(0 0 12px var(--color-primary-shadow));
 }
 
-.topbar-logo img[alt="Logo"]{
+.topbar-logo img[alt="Logo"] {
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -212,11 +225,9 @@
     border: none;
     border-radius: 999px;
 
-    background: linear-gradient(
-        135deg,
-        var(--color-primary-gradient-start),
-        var(--color-primary-gradient-end)
-    );
+    background: linear-gradient(135deg,
+            var(--color-primary-gradient-start),
+            var(--color-primary-gradient-end));
 
     color: var(--color-white);
     font-size: 0.95rem;
