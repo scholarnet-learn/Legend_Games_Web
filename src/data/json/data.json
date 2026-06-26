@@ -1,0 +1,13 @@
+{
+    "games": [
+        {
+            "id": "ogc1",
+            "name": "Old Games Collection 1",
+            "description": "A lot of old games in on file!",
+            "price": 5,
+            "image": "https://raw.githubusercontent.com/scholarnet-learn/Pictures/main/ogc1.webp",
+            "date": "2026-06-25",
+            "time": "19:47"
+        }
+    ]
+}

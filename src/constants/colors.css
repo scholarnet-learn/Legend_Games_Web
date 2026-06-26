@@ -1,0 +1,46 @@
+:root {
+  --color-bg: #050505;
+  --color-black: #050505;
+  --color-white: #ffffff;
+
+  --color-text: rgba(255, 255, 255, 0.92);
+  --color-headline: #ffffff;
+  --color-muted: rgba(255, 255, 255, 0.8);
+  --color-muted-strong: rgba(255, 255, 255, 0.72);
+  --color-muted-light: rgba(255, 255, 255, 0.78);
+  --color-muted-secondary: rgba(255, 255, 255, 0.68);
+  --color-muted-subtle: rgba(255, 255, 255, 0.6);
+  --color-placeholder: rgba(255, 255, 255, 0.45);
+
+  --color-surface: rgba(255, 255, 255, 0.04);
+  --color-surface-strong: rgba(255, 255, 255, 0.08);
+  --color-surface-hover: rgba(255, 255, 255, 0.1);
+  --color-surface-soft: rgba(255, 255, 255, 0.03);
+  --color-surface-glass: rgba(255, 255, 255, 0.137);
+
+  --color-border: rgba(255, 255, 255, 0.18);
+  --color-border-soft: rgba(255, 255, 255, 0.15);
+  --color-border-faint: rgba(255, 255, 255, 0.08);
+
+  --color-primary: #25c87b;
+  --color-accent: #25c87b;
+  --color-primary-dark: #17975d;
+  --color-primary-light: rgba(34, 200, 122, 0.15);
+  --color-primary-shadow: rgba(34, 200, 122, 0.25);
+  --color-primary-shadow-strong: rgba(34, 200, 122, 0.45);
+  --color-primary-gradient-start: #25c87b;
+  --color-primary-gradient-end: #17975d;
+  --color-bg-float: rgba(255, 255, 255, 0.05);
+  --color-text-strong: rgba(255, 255, 255, 0.85);
+  --color-menu-bg: rgba(10, 10, 15, 0.92);
+
+  --color-bg-alt: rgba(10, 10, 15, 0.95);
+
+  --color-radial-top-left: rgba(0, 183, 255, 0.15);
+  --color-radial-top-right: rgba(140, 0, 255, 0.15);
+  --color-radial-bottom: rgba(255, 0, 128, 0.08);
+
+  --color-secondary: #a8b4cf;
+  --color-shadow: rgba(0, 0, 0, 0.25);
+  --color-shadow-strong: rgba(0, 0, 0, 0.35);
+}
